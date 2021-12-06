@@ -1,0 +1,85 @@
+<!-- include header -->
+    <%- include('include/_header') %>
+<!-- /include header -->
+
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+      <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+              <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+              <li class="nav-item">
+                  <a class="nav-link" href="/"><i class="fas fa-user-plus"></i>Add User</a>
+              </li>
+              <li class="nav-item ">
+                  <a class="nav-link" href="/allUsers"><i class="fas fa-eye"></i>View All Users</a>
+              </li>
+              <li class="nav-item ">
+                  <a class="nav-link" href=""><i class="fas fa-user-edit"></i>Edit User</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+    <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <!-- <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
+           </div>
+        </div> -->
+        <div class="form-title text-center">
+            <h2 class="text-dark">Edit User</h2>
+            
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+ <form method="POST" action="/userUpdated/<%= updateData.uid%>" id="add_user">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="name">Name <span style="color: red;">*</span></label>
+            <input type="text" name="name" value="<%= updateData.name %>" placeholder="Mark Stoenis">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email <span style="color: red; ">*</span></label>
+            <input type="text" name="email" value="<%= updateData.email%>" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gender" value="Male" <%= updateData.gender == 'Male' ? 'checked' : '' %>>
+                <label for="radio-2" class="radio-label" style="color:blue;">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gender" value="Female"  <%= updateData.gender == 'Female' ? 'checked' : '' %> >
+                <label for="radio-3" class="radio-label" style="color:blue;">Female</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gender">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" <%= updateData.status == 'Active' ? 'checked' : '' %> >
+                <label for="radio-4" class="radio-label" style="color:green;">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" <%= updateData.status == 'Inactive' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label" style="color:red;">Inactive</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="custom-btn btn-secondary btn-12">Update</button>
+        </div>
+
+    </div>
+</form>
+
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
